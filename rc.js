@@ -40,7 +40,7 @@ class RaamCodeProgram {
 
 class Lexer {
     tokenize(source) {
-        return source.split('');
+        return source.split(' ');
     }
 }
 
