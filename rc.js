@@ -132,7 +132,7 @@ function clearStepInfo() {
 }
 
 function appendToInput(command) {
-    speakText(command);शशशशशशशशहजशशशशहजशशजशशशजशशशजशॐॐॐॐरकजशजशजरजजशहॐकॐरकजजनजरररनशशशशशशशननशशशनजजनॐरनॐनशशशनररररररनररररररररनजजशनजशशन
+    speakText(command);
     document.getElementById('program-input').value += command;
 }
 
