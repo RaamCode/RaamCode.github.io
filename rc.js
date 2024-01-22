@@ -80,19 +80,19 @@ class Command {
         let newIndex = currentIndex;
 
         switch (this.command) {
-            case '<':
+            case 'ॐ':
                 program.location--;
                 break;
-            case '>':
+            case 'ज':
                 program.location++;
                 break;
-            case '+':
+            case 'श':
                 program.data[program.location]++;
                 break;
-            case '-':
+            case 'र':
                 program.data[program.location]--;
                 break;
-            case '[':
+            case 'ह':
                 if (program.data[program.location] === 0) {
                     let loopDepth = 1;
                     while (loopDepth > 0) {
@@ -108,14 +108,14 @@ class Command {
                     loopStack.push(newIndex);
                 }
                 break;
-            case ']':
+            case 'क':
                 if (program.data[program.location] !== 0) {
                     newIndex = loopStack[loopStack.length - 1];
                 } else {
                     loopStack.pop();
                 }
                 break;
-            case '.':
+            case 'न':
                 program.output += String.fromCharCode(program.data[program.location]);
                 break;
             // Handle other commands as needed
