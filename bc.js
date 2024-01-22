@@ -1,4 +1,4 @@
-class BrainfuckProgram {
+class RaamCodeProgram {
     constructor(source) {
         this.source = source;
         this.output = '';
