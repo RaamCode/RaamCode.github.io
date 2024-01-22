@@ -31,8 +31,8 @@ class RaamCodeProgram {
 
     displayOutput() {
         const outputBox = document.getElementById('output');
-        if (outputBox) {
-            outputBox.textContent = this.output;
+        if (output) {
+            output.textContent = this.output;
             speakText(this.output);
         }
     }
@@ -137,8 +137,9 @@ function appendToInput(command) {
 }
 
 function runProgram() {
-    const source = document.getElementById('program-input').value;
+    const source = document.getElementById('program-input').value.replace(/(\S)\S* /g, '$1');
     const mool = source.replace(/[^ॐजशरहकनव]/g, '');
+    document.getElementById('mool').value = mool;
     const program = new RaamCodeProgram(mool);
     program.run();
     displayStepInfo(program);
@@ -165,6 +166,7 @@ function loadSample() {
     const selectedSample = sampleDropdown.options[sampleDropdown.selectedIndex].value;
     document.getElementById('program-input').value = selectedSample;
     speakText(selectedSample);
+    sampleDropdown.selectedInde = -1;
 }
 
 function displayStepInfo(program) {

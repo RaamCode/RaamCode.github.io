@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="styles.css">
     <title>Raam Code Interpreter</title>
-    <meta http-equiv="refresh" content="60">
+    <meta http-equiv="refresh" content="200">
 </head>
 <body>
     <div id="title">Raam Code Interpreter</div>
@@ -19,9 +19,10 @@
         <label for="program-input">Enter Raam Code Program:</label>
         <textarea id="program-input" rows="4" cols="50" oninput="clearStepInfo()"></textarea>
         <div>
-            <button id="new-button" onclick="saveRaam Code()">New</button>
-            <button id="save-button" onclick="saveRaam Code()">Save</button>
-            <button id="load-button" onclick="loadRaam Code()">Load</button>
+            <button id="new-button" onclick="newRaamCode()">New</button>
+            <button id="save-button" onclick="saveRaamCode()">Save</button>
+            <button id="load-button" onclick="loadRaamCode()">Load</button>
+            <button id="load-button" onclick="chantRaamCode()">Chant</button>
         </div>
     </div>
     <div id="keypad">
@@ -39,6 +40,7 @@
         <select id="sample-dropdown" onchange="loadSample()">
             <option value="" selected disabled hidden>Samples</option>
             <option value="श्री श्री श्री श्री श्री श्री श्री श्री हरे &#10;जय श्री श्री श्री श्री हरे &#10;जय श्री श्री &#10;जय श्री श्री श्री &#10;जय श्री श्री श्री &#10;जय श्री &#10;ॐ ॐ ॐ &#10;ॐ राम कृष्ण &#10;जय श्री जय श्री &#10;जय राम &#10;जय जय श्री हरे &#10;ॐ कृष्ण &#10;ॐ राम कृष्ण जय जय नमो &#10;जय राम &#10;राम राम नमो &#10;श्री श्री श्री श्री श्री श्री श्री &#10;नमो नमो श्री श्री श्री नमो &#10;जय जय नमो ॐ राम &#10;नमो ॐ नमो श्री श्री श्री &#10;नमो राम &#10;राम राम राम राम राम नमो &#10;राम राम राम राम राम &#10;राम राम राम नमो &#10;जय जय श्री नमो &#10;जय श्री श्री नमो">Hello world</option>
+            <option value="श्री श्री श्री श्री श्री श्री श्री श्री हरे &#10;जय श्री श्री श्री श्री हरे &#10;जय श्री श्री &#10;जय श्री श्री श्री &#10;जय श्री श्री श्री &#10;जय श्री &#10;ॐ ॐ ॐ &#10;ॐ राम कृष्ण &#10;जय श्री जय श्री &#10;जय राम &#10;जय जय श्री हरे &#10;ॐ कृष्ण &#10;ॐ राम कृष्ण जय जय नमो &#10;जय राम &#10;राम राम नमो &#10;श्री श्री श्री श्री श्री श्री श्री &#10;नमो नमो श्री श्री श्री नमो &#10;जय जय नमो ॐ राम &#10;नमो ॐ नमो श्री श्री श्री &#10;नमो राम &#10;राम राम राम राम राम नमो &#10;राम राम राम राम राम &#10;राम राम राम नमो &#10;जय जय श्री नमो &#10;जय श्री श्री नमो">Hello world</option>
             <!-- Add more sample options here -->
         </select>
     </div>
@@ -50,14 +52,19 @@
         <button id="inspect-button" onclick="inspectMemory()">Inspect</button>
     </div>
 
-    <div id="input-section">
-        <label for="input-box">Input:</label>
-        <textarea id="input-box" rows="2" cols="50"></textarea>
-    </div>
-
     <div id="output-box">
         <label for="output">Output:</label>
         <textarea id="output" rows="4" cols="50""></textarea>
+    </div>
+
+    <div id="input-box">
+        <label for="input">Input:</label>
+        <textarea id="input" rows="2" cols="50"></textarea>
+    </div>
+
+    <div id="mool-section">
+        <label for="mool">Mool:</label>
+        <textarea id="mool" rows="2" cols="50"></textarea>
     </div>
 
     <div id="error-box">
