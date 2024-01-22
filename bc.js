@@ -68,20 +68,17 @@ class Command {
         let newIndex = currentIndex;
 
         switch (this.command) {
-            case '+':
-                program.data[program.location]++;
-                break;
-            case '-':
-                program.data[program.location]--;
-                break;
             case '<':
                 program.location--;
                 break;
             case '>':
                 program.location++;
                 break;
-            case '.':
-                program.output += String.fromCharCode(program.data[program.location]);
+            case '+':
+                program.data[program.location]++;
+                break;
+            case '-':
+                program.data[program.location]--;
                 break;
             case '[':
                 if (program.data[program.location] === 0) {
@@ -105,6 +102,9 @@ class Command {
                 } else {
                     loopStack.pop();
                 }
+                break;
+            case '.':
+                program.output += String.fromCharCode(program.data[program.location]);
                 break;
             // Handle other commands as needed
         }
