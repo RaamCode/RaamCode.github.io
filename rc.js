@@ -163,6 +163,7 @@ function loadSample() {
     const sampleDropdown = document.getElementById('sample-dropdown');
     const selectedSample = sampleDropdown.options[sampleDropdown.selectedIndex].value;
     document.getElementById('program-input').value = selectedSample;
+    speakText(selectedSample);
 }
 
 function displayStepInfo(program) {
