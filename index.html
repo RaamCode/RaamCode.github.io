@@ -1,15 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Raam Code - Fundamental Computing</title>
-  <meta http-equiv="refresh" content="60">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Raam Code Interpreter</title>
+    <meta http-equiv="refresh" content="60">
 </head>
 <body>
+    <div id="title">Raam Code Interpreter</div>
+
   <h1>Raam naam jaap based building blocks of computing</h1>
   <iframe width="560" height="315" src="https://www.youtube.com/embed/AvYoG1OpLgs?si=x3llAWFUDgLhU97h" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
   <p>Launched: 22 Jan 2024, 12:39pm</p>
   <p>Refresh page for updates being added continuously.</p>
-  
+
+    <div id="input-box">
+        <label for="program-input">Enter Raam Code Program:</label>
+        <textarea id="program-input" rows="4" cols="50" oninput="clearStepInfo()"></textarea>
+        <div>
+            <button id="new-button" onclick="saveRaam Code()">New</button>
+            <button id="save-button" onclick="saveRaam Code()">Save</button>
+            <button id="load-button" onclick="loadRaam Code()">Load</button>
+        </div>
+    </div>
+    <div id="keypad">
+        <button class="command-button" onclick="appendToInput('ॐ ')">ॐ</button>
+        <button class="command-button" onclick="appendToInput('जय ')">जय</button>
+        <button class="command-button" onclick="appendToInput('श्री ')">श्री</button>
+        <button class="command-button" onclick="appendToInput('राम ')">राम</button>
+        <button class="command-button" onclick="appendToInput('हरे ')">हरे</button>
+        <button class="command-button" onclick="appendToInput('कृष्ण ')">कृष्ण</button>
+        <button class="command-button" onclick="appendToInput('नमो ')">नमो</button>
+        <button class="command-button" onclick="appendToInput('विष्णु ')">विष्णु</button>
+    </div>
+
+    <div id="samples">
+        <select id="sample-dropdown" onchange="loadSample()">
+            <option value="" selected disabled hidden>Samples</option>
+            <option value="Refresh for updates - to be made available within a few minutes">Program - Hello world</option>
+            <!-- Add more sample options here -->
+        </select>
+    </div>
+
+    <div id="action">
+        <button id="run-button" onclick="runProgram()">Run</button>
+        <button id="step-button" onclick="stepProgram()">Step</button>
+        <button id="stop-button" onclick="stopProgram()">Stop</button>
+        <button id="inspect-button" onclick="inspectMemory()">Inspect</button>
+    </div>
+
+    <div id="input-section">
+        <label for="input-box">Input:</label>
+        <textarea id="input-box" rows="2" cols="50"></textarea>
+    </div>
+
+    <div id="output-box">
+        <label for="output">Output:</label>
+        <textarea id="output" rows="4" cols="50""></textarea>
+    </div>
+
+    <div id="error-box">
+        <label for="error">Error:</label>
+        <textarea id="error" rows="4" cols="50""></textarea>
+    </div>
+
+    <div id="status-box">
+        <label for="status">Status:</label>
+        <textarea id="status" rows="4" cols="50""></textarea>
+    </div>
+
+    <script src="bc.js"></script>
+    <script>
+        // Read program from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const programParam = urlParams.get('PROG');
+        if (programParam) {
+            document.getElementById('program-input').value = programParam;
+        }
+    </script>
 </body>
 </html>
-
