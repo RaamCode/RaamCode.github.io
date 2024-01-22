@@ -165,8 +165,12 @@ function loadSample() {
     const sampleDropdown = document.getElementById('sample-dropdown');
     const selectedSample = sampleDropdown.options[sampleDropdown.selectedIndex].value;
     document.getElementById('program-input').value = selectedSample;
-    speakText(selectedSample);
+    //speakText(selectedSample);
     sampleDropdown.selectedInde = -1;
+}
+
+function chantRaamCode() {
+    speakText(document.getElementById('program-input').value);
 }
 
 function displayStepInfo(program) {
