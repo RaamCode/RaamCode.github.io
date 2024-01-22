@@ -40,7 +40,7 @@ class RaamCodeProgram {
 
 class Lexer {
     tokenize(source) {
-        return source.split(' ');
+        return source.split('');
     }
 }
 
@@ -138,7 +138,8 @@ function appendToInput(command) {
 
 function runProgram() {
     const source = document.getElementById('program-input').value;
-    const program = new RaamCodeProgram(source);
+    const mool = source.replace(/[^ॐजशरहकनव]/g, '');
+    const program = new RaamCodeProgram(mool);
     program.run();
     displayStepInfo(program);
 }
