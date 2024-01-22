@@ -1,3 +1,14 @@
+// Function to speak text using the browser's speech synthesis
+function speakText(text) {
+    const speechSynthesis = window.speechSynthesis;
+
+    // Create a new speech synthesis utterance
+    const utterance = new SpeechSynthesisUtterance(text);
+
+    // Speak the text
+    speechSynthesis.speak(utterance);
+}
+
 class RaamCodeProgram {
     constructor(source) {
         this.source = source;
@@ -19,9 +30,10 @@ class RaamCodeProgram {
     }
 
     displayOutput() {
-        const outputBox = document.getElementById('output-box');
+        const outputBox = document.getElementById('output');
         if (outputBox) {
             outputBox.textContent = this.output;
+            speakText(this.output);
         }
     }
 }
@@ -119,17 +131,6 @@ function clearStepInfo() {
     document.getElementById('error').textContent = '';
 }
 
-// Function to speak text using the browser's speech synthesis
-function speakText(text) {
-    const speechSynthesis = window.speechSynthesis;
-
-    // Create a new speech synthesis utterance
-    const utterance = new SpeechSynthesisUtterance(text);
-
-    // Speak the text
-    speechSynthesis.speak(utterance);
-}
-
 function appendToInput(command) {
     speakText(command);
     document.getElementById('program-input').value += command;
@@ -137,7 +138,7 @@ function appendToInput(command) {
 
 function runProgram() {
     const source = document.getElementById('program-input').value;
-    const program = new BrainfuckProgram(source);
+    const program = new RaamCodeProgram(source);
     program.run();
     displayStepInfo(program);
 }
@@ -145,7 +146,7 @@ function runProgram() {
 function stepProgram() {
     clearStepInfo();
     const source = document.getElementById('program-input').value;
-    const program = new BrainfuckProgram(source);
+    const program = new RaamCodeProgram(source);
     const commands = program.parse(source);
 
     if (commands.commands.length > 0) {
