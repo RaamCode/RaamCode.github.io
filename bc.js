@@ -119,16 +119,16 @@ function clearStepInfo() {
     document.getElementById('error').textContent = '';
 }
 
-    // Function to speak text using the browser's speech synthesis
-    function speakText(text) {
-        const speechSynthesis = window.speechSynthesis;
+// Function to speak text using the browser's speech synthesis
+function speakText(text) {
+    const speechSynthesis = window.speechSynthesis;
 
-        // Create a new speech synthesis utterance
-        const utterance = new SpeechSynthesisUtterance(text);
+    // Create a new speech synthesis utterance
+    const utterance = new SpeechSynthesisUtterance(text);
 
-        // Speak the text
-        speechSynthesis.speak(utterance);
-    }
+    // Speak the text
+    speechSynthesis.speak(utterance);
+}
 
 function appendToInput(command) {
     speakText(command);
