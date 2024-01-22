@@ -30,9 +30,9 @@ class RaamCodeProgram {
     }
 
     displayOutput() {
-        const outputBox = document.getElementById('output');
+        const output = document.getElementById('output');
         if (output) {
-            output.textContent = this.output;
+            output.value = this.output;
             speakText(this.output);
         }
     }
@@ -132,7 +132,7 @@ function clearStepInfo() {
 }
 
 function appendToInput(command) {
-    speakText(command);
+    speakText(command);शशशशशशशशहजशशशशहजशशजशशशजशशशजशॐॐॐॐरकजशजशजरजजशहॐकॐरकजजनजरररनशशशशशशशननशशशनजजनॐरनॐनशशशनररररररनररररररररनजजशनजशशन
     document.getElementById('program-input').value += command;
 }
 
@@ -170,7 +170,7 @@ function loadSample() {
 }
 
 function displayStepInfo(program) {
-    document.getElementById('status').textContent = 'Current Index: ' + program.location;
+    document.getElementById('status').value = 'Current Index: ' + program.location;
     highlightCurrentCommand(program.location);
     document.getElementById('error').textContent = '';
 }
