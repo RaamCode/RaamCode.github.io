@@ -9,6 +9,41 @@ function speakText(text) {
     speechSynthesis.speak(utterance);
 }
 
+function countRaamCode() {
+    let inputText = document.getElementById('program-input').value;
+    let words = inputText.split(/\s+/);
+    let wordCount = {};
+
+    // Counting words
+    words.forEach(word => {
+        wordCount[word] = (wordCount[word] || 0) + 1;
+    });
+
+    // Sorting by word count in descending order
+    let sortedWordCount = Object.entries(wordCount)
+        .sort((a, b) => b[1] - a[1]);
+
+    // Formatting output
+    let outputText = sortedWordCount
+        .map(([word, count]) => `${word}: ${count}`)
+        .join('\n');
+
+    // Displaying in output textarea
+    document.getElementById('output').value = outputText;
+}
+
+function newRaamCode() {
+    document.getElementById('program-input').value = '';
+    document.getElementById('input').value = '';
+    document.getElementById('output').value = '';
+    document.getElementById('error').value = '';
+    document.getElementById('status').value = '';
+}
+
+function saveRaamCode() {
+    saveToFile(document.getElementById('program-input').value);
+}
+ 
 class RaamCodeProgram {
     constructor(source) {
         this.source = source;
