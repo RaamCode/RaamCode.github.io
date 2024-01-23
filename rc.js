@@ -30,6 +30,7 @@ function countRaamCode() {
 
     // Displaying in output textarea
     document.getElementById('output').value = outputText;
+    speakText(outputText);
 }
 
 function newRaamCode() {
